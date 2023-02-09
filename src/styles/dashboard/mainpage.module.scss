@@ -1,0 +1,36 @@
+.mainpage {
+    padding: 10px;
+    margin : 60px auto;
+    :global {
+        .createNews {
+            padding: 10px;
+            border : 1px solid #ddd;
+            border-radius : 4px
+        }
+
+        .form-group { 
+            margin : 20px auto;
+            label { 
+                display : block;
+                margin-bottom : 10px;
+            }
+        }
+
+        .column-type {
+            * {
+                margin : 10px 30px;
+                
+            }
+            button { 
+                padding: 10px;
+                width: 60px;
+                height : 60px;
+                text-align: center;
+                i {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.aboutme {
+    margin: 100px auto;
+    & > * {
+        margin: 50px auto;
+    }
+    :global {
+       ul { 
+            list-style : none;
+            width: 80%;
+            li {
+                cursor: pointer;
+                .item {
+                    padding: 8px;
+                    border : 1px solid rgb(203, 203, 203);
+                    background-color: #ddd;
+                }
+                .dropdown {
+                    padding:0;
+                    border:1px solid rgb(203, 203, 203);
+                    background-color: white;
+                    overflow:hidden;
+                    height: 0;
+                    transition: all .5s ease-in-out
+                }
+                .dropdown.show {
+                    padding:16px
+                    ;
+                    height: 150px;
+                }
+                
+            }
+       } 
+    }
+}

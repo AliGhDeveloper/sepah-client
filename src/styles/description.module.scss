@@ -1,0 +1,13 @@
+.description {
+    margin: 40px auto;
+    border : 1px solid #ddd;
+    border-radius : 5px;
+    padding: 16px;
+    
+    img {
+        min-width: 50%;
+        max-height: 200px;
+        box-shadow : 1px 3px 5px rgba(0,0,0,0.1);
+        border-radius : 4px;
+    }
+}

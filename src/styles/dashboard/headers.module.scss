@@ -1,0 +1,42 @@
+.headerLinks {
+    width: 100%;
+    margin : 30px auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius : 4px;
+    div {
+        margin: 10px auto;
+    }
+    
+}
+.edit {
+    :global {
+        .dropdownlink {
+            cursor : pointer;
+        }
+        @media screen and (max-width: 768px){
+            .link-list {
+                flex-direction: column;
+            }
+        }
+        .dropdownmenu {
+            padding: 0;
+            height: 0;
+            border: none;
+            overflow : hidden;
+            transition: all .4s
+        }
+
+        .dropdownmenu.show {
+            padding: 10px;
+            height: fit-content;
+            border: 1px solid #ddd;
+            border-radius: 0 0 2px 2px;
+            transition: all .4s
+        }
+    }
+    input[type=number] {
+        width: 50px;
+        margin : 0 5px;
+    }
+}

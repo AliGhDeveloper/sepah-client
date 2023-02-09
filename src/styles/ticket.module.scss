@@ -1,0 +1,89 @@
+@import './library/variables.scss';
+
+@mixin hover($clickable : true) {
+    user-select: none;
+    cursor : pointer;
+    &:hover {
+        background-color: #ddd
+    };
+    @if($clickable) {
+        &:active {
+            box-shadow : 3px 3px 5px rgba(0,0,0,0.1) inset;
+        }
+    }
+}
+
+
+.image { 
+    position: relative;
+    img { 
+        border-radius : 4px;
+        object-position: center;
+        object-fit: none;
+        opacity: 0.7
+    }
+
+    & > div {
+        position: absolute;
+        bottom : 0;
+        left: 0;
+        right: 0;
+        font-size : 10px
+    }
+
+    & > span {
+        position: absolute;
+        top : 0;
+        left : 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .mrow {
+        flex-wrap : wrap-reverse;
+    }    
+}
+
+.layout {
+    :global {
+        .container-md {
+            margin-top: 100px;
+        }
+        .list-group {
+            margin: 20px auto;
+            border-radius : 0;
+            li{
+                cursor : pointer;
+                @include hover(true);
+            }
+            li.header {
+                @include hover(false);
+                cursor :default;
+                background-color: #ddd;
+                height : 50px;
+            }
+        }
+    }
+}
+
+
+.ticketlist {
+    td, th {
+        @include hover();
+        padding : 5px 13px;
+    }
+    :global {
+        .d-flex {
+            border: 1px solid #ddd;
+            border-radius : 4px 4px 0 0;
+            padding : 6px 16px;
+            background-color: $dashboard-bg-color;
+            input {
+                height : 40%;
+                width : 25%;
+            }
+        }
+    }
+}

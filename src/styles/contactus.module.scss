@@ -1,0 +1,9 @@
+.contactus {
+    margin: 100px auto;
+    :global {
+        .banklist {
+            padding: 16px;
+            column-count: 2;
+        }
+    }
+}

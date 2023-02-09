@@ -1,0 +1,11 @@
+#slider {
+    width: 100%!important;
+    img {
+        opacity: 0.9;
+        max-height: 300px;
+        object-fit: cover;;
+    }
+    .carousel-inner {
+        max-height: 300px;
+    }
+}

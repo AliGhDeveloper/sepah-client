@@ -1,0 +1,16 @@
+@import './library/variables.scss';
+
+.accnumbers {
+    margin : 100px auto;
+    thead {
+        tr{
+            background-color: $dashboard-bg-color;
+            color: white;
+        }
+    }
+    :global {
+        .accnum {
+            cursor: pointer;
+        }        
+    }
+}

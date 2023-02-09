@@ -1,0 +1,104 @@
+@import '../library/variables';
+
+@mixin sidelist {
+    ul {
+        list-style : none;
+        padding: 16px;
+        li {
+            cursor : pointer;
+            border-radius: 4px;
+            margin: 0 auto 0;
+            padding: 12px;
+            text-align: center;
+            max-width: fit-content;
+            &:hover {
+                background-color: lighten($color: $dashboard-bg-color, $amount: 3)
+            }
+            * {
+                text-decoration: none !important;
+                color: white;
+            }
+        }
+    }
+}
+
+
+.dashlayout {
+    :global {
+        .sidebar{
+            .tools {
+                display: none;
+            }
+            width : inherit;
+            position: fixed;
+            top: 55px;
+            bottom: 0;
+            @include sidelist();
+            overflow-y: scroll;
+            background-color: $dashboard-bg-color;
+            color: white;
+        }
+        @media screen and (max-width : 768px) {
+            .sidebar {
+                .tools {
+                    display: block!important;
+                }
+                position: fixed;
+                right: 0;
+                top: 50px;
+                bottom: 0;
+                overflow-y : scroll;
+                width : 0;
+                overflow : hidden;
+                .tools {
+                    display: none;
+                }
+                @include sidelist();
+                overflow-y: scroll;
+                height: 100%;
+                background-color: $dashboard-bg-color;
+                color: white;
+            }   
+            .sidebar.show {
+                width : 75%;
+                transition : width .4s;
+            }
+        }
+        .dash-header {
+            .navbar-nav {
+                display:flex;
+                flex-direction: row;
+            }
+            .menu {
+                @media screen and (min-width: 768px) {
+                    display: none;
+                }
+                border-radius: 2px;
+                display: flex;
+                align-items:center;
+                width: 40px;
+                height: 40px;
+                margin: 0;
+                padding: 4px;
+                font-size: 30px;
+                color: white;
+                i {
+                    margin: 0;
+                }
+            }
+            background-color: $dashboard-bg-color;
+            color: white;
+            @media screen and (max-width: 768px) {
+                .navbar-nav {
+                    display: none!important;
+                }
+            }
+        };
+        .dash {
+            padding: 0;
+            margin: 0;
+            margin: 50px 0;
+        }
+    }
+}
+

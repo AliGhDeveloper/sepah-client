@@ -1,0 +1,67 @@
+@import './library/variables';
+
+@font-face { 
+    font-family : shabnam;
+    src : url('../../public/fonts/Shabnam.ttf')
+}
+
+
+
+h1,h2,h3,h4,h5,h6 { 
+    width: 100%;
+    margin: 10px auto;
+}
+
+#root {
+    height: 100%;
+}
+.App {
+    height: 100%;
+}
+
+html {
+    height: 100%
+}
+
+body {
+    height: 100%;
+    font-family : shabnam;
+    direction : rtl;
+    text-align : right;
+}
+
+* {
+    margin : 0;
+    padding: 0;
+    @if(background-color==white) {
+        @debug('salam')
+    }
+}
+
+
+td, th {
+    padding: 7px;
+    text-align: center;
+}
+
+#videocover {
+    width: 100%;
+    height: 100%;
+    object-fit : cover;
+    position: fixed;
+    top : 0;
+    bottom: 0;
+    z-index : -200;
+    opacity : 0.6
+}
+
+.mpcontent {
+    margin: 100px auto;
+    background-color: white;
+    border-radius: 5px;
+}
+
+@import './navbar.scss';
+@import './footer.scss';
+@import './slider.scss';
+
