@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useRef } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 export default function NewsItem({ news, columnType }) {
-    console.log(news)
-    const {title, preview, image, content, category, date, views } = news
+    
+    const {title, preview, image, content, category, date, views, id } = news
     const myContent = useRef();
     
+    const navigate = useNavigate();
+
 
     // const myContent2 = useCallback(node => {
     //     if (node !== null) {
@@ -18,7 +20,7 @@ export default function NewsItem({ news, columnType }) {
         myContent.current.innerHTML = content
     }, [content])
     return (
-        <div className={`col-12 p-2 ${columnType}`}>
+        <div onClick={() => navigate(`/newsarchive/${id}`)} className={`col-12 p-2 ${columnType}`}>
             <div className="card" >
                 <img src={ image ? image : preview } className="card-img-top" alt="..."/>
                 <div className="card-body">

@@ -3,11 +3,23 @@ import { useLazyQuery } from "@apollo/client"
 import { getNews } from "../utils/queries";
 import styles from '../styles/news.module.scss';
 import NewsItem from "./NewsItem";
+import { useLocation } from 'react-router-dom';
 
-export default function News({ previewData, columnType }) {
-    const [ getData, data ] = useLazyQuery(getNews);
+
+export default function News({ previewData, columnType, category }) {
+    const [ getData, data ] = useLazyQuery(getNews, {
+        variables : { category }
+    });
+
+    const location = useLocation();
+
     const [ columns, setColumns ] = useState(null)
     const [ newsData, setNewsData] = useState(null);
+    
+    useEffect(() => {
+        getData()
+    }, [category])
+
     useEffect(() => {
         if(data.data !== undefined) {
             setNewsData(data.data?.getNews.data)
@@ -18,7 +30,6 @@ export default function News({ previewData, columnType }) {
             }
             setNewsData(previewData)
         }
-
     }, [data, previewData, columnType])
 
     useEffect(() => {
@@ -29,16 +40,21 @@ export default function News({ previewData, columnType }) {
 
 
     return (
-        <div className={`${styles.news} my-5 row row-wrap`}>
-            <h5>
-                {
-                    previewData !== undefined ? 
-                    "پیش نمایش : "
-                    :
-                    "آخرین اخبار : "
-                }
-            </h5>
+        <div className={`${styles.news} row row-wrap`}>
+            {
+                !location.pathname.includes('newsarchive') &&
+                <h5>
+                    {
+                        previewData !== undefined ? 
+                        "پیش نمایش : "
+                        :
+                        "آخرین اخبار : "
+                    }
+                </h5>
+            }
             {   
+                newsData?.loading ? 
+                <p>در حال بارگذاری...</p> : 
                 newsData?.length < 1 ? <p>چیزی برای پیش نمایش وجود ندارد!</p> :
                 newsData?.map((news, index) => (<NewsItem key={index} news={news} columnType={columns}/>))
             }

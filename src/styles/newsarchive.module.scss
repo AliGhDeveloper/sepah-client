@@ -1,0 +1,30 @@
+@import './library/variables';
+
+.newsarchive {
+    margin : 100px auto !important;
+    :global {
+        .filter{ 
+            padding: 16px;
+            border : 1px solid #ddd;
+        }
+        ul {
+            user-select: none;
+            list-style : none;
+            margin : 0;
+            padding : 0;
+            li {
+                width: 100%;
+                margin : 5px 0;
+                cursor: pointer;
+                padding: 5px;
+                border-radius: 1px;
+                &:hover {
+                    background-color: #ddd
+                }
+                &:active {
+                    box-shadow : $base-box-shadow inset;
+                }
+            }
+        }
+    }
+}

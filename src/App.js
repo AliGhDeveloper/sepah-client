@@ -18,7 +18,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import LatestNews from './pages/Dashboard/MainPage/LatestNews';
 import Description from './pages/Dashboard/MainPage/Description';
 import NewsArchive from './pages/newsarchive';
+import NewsDetails from './components/NewsDetails';
+
 function App() {
+
+    const date1 = new Date('2/12/2023');
+    const date2 = new Date('2/5/2023');
+    const date3 = new Date('1401/11/23');
+    const date4 = new Date().toLocaleDateString()
+    const list = [  date3, date1, date2] ;
+    console.log(date3)
+    const sortedlist = list.sort((a, b) =>  {
+      if(a-b > 0) return -1;
+      else        return 1
+    })
+    console.log(sortedlist)
+
   const date = new Date().getFullYear('fa-IR')
   console.log(date)
   const sidebar = useSelector(state => state.sidebar);
@@ -47,6 +62,7 @@ function App() {
               <Route path="/aboutme" element={<Aboutme />} />
               <Route path="/contactus" element={<ContactUs />} />
               <Route path="/newsarchive" element={<NewsArchive />} />
+              <Route path="/newsarchive/:newsid" element={<NewsDetails />} />
           </Route>
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="/dashboard/siteheader" element={<Header />} />

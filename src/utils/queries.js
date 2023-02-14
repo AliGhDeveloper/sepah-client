@@ -1,9 +1,10 @@
 import { gql } from "@apollo/client";
 
 export const getNews = gql`
-    query GETNEWS {
-        getNews{
+    query GETNEWS($category: String) {
+        getNews(category: $category){
             data {
+                id
                 title 
                 image
                 content
@@ -13,6 +14,20 @@ export const getNews = gql`
             }
             columnType 
         }
+    }
+`
+
+export const getNewsById = gql`
+    query GET_NEWS_BY_ID ($id: String) {
+        getNewsById (id : $id) {
+                id
+                title 
+                content
+                date
+                image 
+                category
+                views 
+            }
     }
 `
 

@@ -31,8 +31,10 @@ export default function Home() {
         <Slider />
         <video src="/media/videocover.mp4" autoPlay muted  loop id="videocover" />
         <div className="mpcontent container p-4">
-            <News />
-            <Link to="/newsarchive">بیشتر در آرشیو اخبار و مقالات ...</Link>
+            <div className="my-5">
+                <News />
+                <Link to="/newsarchive">بیشتر در آرشیو اخبار و مقالات ...</Link>
+            </div>
             <hr />
             <CDecription />
             <div className="d-flex justify-content-around">
